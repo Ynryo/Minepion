@@ -5,4 +5,6 @@ module fr.ynryo.tictactoe {
 
     opens fr.ynryo.tictactoe to javafx.fxml;
     exports fr.ynryo.tictactoe;
+    exports fr.ynryo.tictactoe.controllers;
+    opens fr.ynryo.tictactoe.controllers to javafx.fxml;
 }
