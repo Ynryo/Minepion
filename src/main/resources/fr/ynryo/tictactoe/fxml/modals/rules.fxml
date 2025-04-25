@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="426.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.RulesController">
+   <children>
+      <Label alignment="CENTER" prefHeight="18.0" prefWidth="872.0" text="Règles du morpion">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="But du jeu">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefWidth="426.0" text="Être le premier à aligner 3 de ses symboles (X ou O) horizontalement, &#10;verticalement ou en diagonale." />
+            <Label text="Déroulement">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefWidth="426.0" text="Les joueurs jouent à tour de rôle" />
+            <Label prefWidth="426.0" text="À chaque tour, un joueur place son symbole dans une case vide de la grille" />
+            <Label text="Fin de la partie">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefWidth="426.0" text="Un joueur gagne s’il aligne 3 de ses symboles" />
+            <Label prefWidth="426.0" text="Si toutes les cases sont remplies sans qu’il y ait d’alignement, la partie est*&#10;nulle (égalité)" />
+         </children>
+      </VBox>
+      <Button fx:id="close_btn" alignment="CENTER" contentDisplay="CENTER" minWidth="75.0" mnemonicParsing="false" onAction="#closeModal" prefWidth="97.0" text="Fermer">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

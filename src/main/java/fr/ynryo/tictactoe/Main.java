@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class Main extends Application {
     @Override
@@ -19,12 +20,14 @@ public class Main extends Application {
         stage.setTitle("Tic Tac Toe");
         stage.setMaximized(true);
         Scene scene = new Scene(root, 480, 320);
-        scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/fontstyle.css").toExternalForm());
+//        scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/fontstyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
         launch();
+        Player player1 = new Player();
+        Player player2 = new Player();
     }
 }
