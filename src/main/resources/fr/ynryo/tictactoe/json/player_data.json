@@ -13,14 +13,14 @@
   },
   "pisse": {
     "symbol": "acacia_sign",
-    "score": 2
+    "score": 2.0
   },
   "Ewen": {
     "score": 10015.0,
     "symbol": "water_bucket"
   },
   "Ynryo": {
-    "score": 67.0,
+    "score": 68,
     "symbol": "lava_bucket"
   },
   "Théo": {

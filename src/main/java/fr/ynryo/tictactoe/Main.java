@@ -54,10 +54,7 @@ public class Main extends Application {
         
         // Configuration de la fenêtre en mode maximisé
         stage.setMaximized(true);
-        
-        // Commentaire désactivé pour une feuille de style de police alternative
-//        scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/fontstyle.css").toExternalForm());
-        
+
         // Association de la scène à la fenêtre principale
         stage.setScene(scene);
         
