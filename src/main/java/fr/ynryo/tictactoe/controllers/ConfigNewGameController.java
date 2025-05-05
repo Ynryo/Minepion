@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,10 +17,22 @@ public class ConfigNewGameController {
     private TextField input_player1_name;
 
     @FXML
+    private TextField input_player1_symbol;
+
+    @FXML
     private TextField input_player2_name;
 
     @FXML
+    private TextField input_player2_symbol;
+
+    @FXML
     private Button one_player_mode;
+
+    @FXML
+    private RadioButton radioStartP1;
+
+    @FXML
+    private RadioButton radioStartP2;
 
     @FXML
     private Button start_game_btn;
@@ -27,9 +40,15 @@ public class ConfigNewGameController {
     @FXML
     private Button two_players_mode;
 
-    private int nbPlayerMode;
-    private String player1_name;
-    private String player2_name;
+    private int nbPlayerMode = 2;
+    public Player player1;
+    public Player player2;
+
+    @FXML
+    void initialize() {
+        one_player_mode.setDisable(true);
+        nbPlayerMode = 2;
+    }
 
     public int getNbPlayerMode() {
         return nbPlayerMode;
@@ -50,16 +69,9 @@ public class ConfigNewGameController {
     }
 
     @FXML
-    public void initialize() {
-        one_player_mode.setDisable(true);
-    }
-
-    @FXML
     void startGame(ActionEvent event) {
-        String player1Name = input_player1_name.getText();
-        String player2Name = input_player2_name.getText();
-        Player player1 = new Player(player1Name);
-        Player player2 = new Player(player2Name);
+        player1 = new Player(input_player1_symbol.getText(), input_player1_name.getText());
+        player2 = new Player(input_player2_symbol.getText(), input_player2_name.getText());
         IA ia = null;
 
         switch (getNbPlayerMode()) {
@@ -70,15 +82,16 @@ public class ConfigNewGameController {
             case 2:
                 try {
                     Stage modalStage = (Stage) two_players_mode.getScene().getWindow();
+                    Stage mainStage = (Stage) modalStage.getOwner();
                     modalStage.close();
 
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/ynryo/tictactoe/fxml/game.fxml"));
                     Parent root = fxmlLoader.load();
-                    Stage mainStage = (Stage) modalStage.getOwner();
-                    Scene scene = new Scene(root);
-                    mainStage.setScene(scene);
-                    mainStage.setMaximized(false);
-                    mainStage.setMaximized(true);
+
+                    GameController gameController = fxmlLoader.getController();
+                    gameController.setPlayers(player1, player2, whoStart());
+
+                    mainStage.setScene(new Scene(root));
                     mainStage.show();
                 } catch (Exception e) {
                     System.err.println("Erreur lors du lancement de la partie en mode 2 joueurs :");
@@ -86,8 +99,18 @@ public class ConfigNewGameController {
                 }
                 break;
             default:
-                // Gérer un cas inattendu ou prévenir l’utilisateur
+                System.out.println("Sélectionnez un mode entre 1 ou 2 joueurs.");
                 return;
+        }
+    }
+
+    private Player whoStart() {
+        if (radioStartP1.isSelected()) {
+            return player1;
+        } else if (radioStartP2.isSelected()) {
+            return player2;
+        } else {
+            return null;
         }
     }
 }

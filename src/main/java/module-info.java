@@ -1,6 +1,7 @@
 module fr.ynryo.tictactoe {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.google.gson;
 
 
     opens fr.ynryo.tictactoe to javafx.fxml;

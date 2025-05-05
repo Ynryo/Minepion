@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,6 +22,11 @@ public class StartingPageController {
 
     @FXML
     private Button startgame_button;
+
+    @FXML
+    public void initialize() {
+        Font.loadFont(getClass().getResource("/fr/ynryo/tictactoe/fonts/KarmaticArcade.ttf").toExternalForm(), 10);
+    }
 
     @FXML
     void start_game(ActionEvent event) {
@@ -56,6 +62,22 @@ public class StartingPageController {
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) settings_btn.getScene().getWindow();
             Scene scene = new Scene(root);
+            stage.setScene(scene);
+//            stage.setMaximized(false);
+//            stage.setMaximized(true);
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("c pt");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void ranking_open(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/ynryo/tictactoe/fxml/ranking.fxml"));
+            Stage stage = (Stage) settings_btn.getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
             stage.setMaximized(false);
             stage.setMaximized(true);

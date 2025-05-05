@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="672.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.GameController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="672.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.GameController">
    <children>
       <ButtonBar buttonOrder="unspecified">
         <buttons>
             <Button fx:id="close_game" minHeight="50.0" mnemonicParsing="false" onAction="#closeGameClicked" prefWidth="125.0" text="Quitter la partie" />
-          <Button fx:id="rulesBtn" minHeight="50.0" mnemonicParsing="false" onAction="#openRules" text="Règles du jeu" />
+          <Button fx:id="rules_btn" minHeight="50.0" mnemonicParsing="false" onAction="#openRules" text="Règles du jeu" />
             <Button fx:id="reset_game_btn" minHeight="50.0" mnemonicParsing="false" onAction="#resetGame" text="Recommencer" />
         </buttons>
          <padding>
@@ -34,35 +34,57 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="checkbox1" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" />
+            <Button fx:id="checkbox2" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" />
+            <Button fx:id="checkbox3" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" />
+            <Button fx:id="checkbox4" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.rowIndex="1" />
+            <Button fx:id="checkbox5" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="checkbox6" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="checkbox7" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.rowIndex="2" />
+            <Button fx:id="checkbox9" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="checkbox8" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <VBox.margin>
-            <Insets bottom="50.0" top="50.0" />
+            <Insets bottom="40.0" top="50.0" />
          </VBox.margin>
       </GridPane>
+      <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
+         <children>
+            <Label text="Tour : " />
+            <Label fx:id="player_turn" />
+         </children>
+      </HBox>
       <HBox>
          <children>
             <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
                <children>
-                  <Label text="Joueur 1 :" />
+                  <Label text="X : " />
                   <Label fx:id="player1_name" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
                <children>
-                  <Label text="Joueur 2" />
+                  <Label text="O : " />
                   <Label fx:id="player2_name" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
+               <children>
+                  <Label text="Score : " />
+                  <Label fx:id="player1_score" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
+               <children>
+                  <Label text="Score : " />
+                  <Label fx:id="player2_score" />
                </children>
             </HBox>
          </children>

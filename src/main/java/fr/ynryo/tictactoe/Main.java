@@ -18,8 +18,8 @@ public class Main extends Application {
 
         stage.getIcons().add(new Image("https://cdn3d.iconscout.com/3d/premium/thumb/arcade-game-3d-icon-download-in-png-blend-fbx-gltf-file-formats--video-machine-gaming-pack-sign-symbols-icons-7308667.png"));
         stage.setTitle("Tic Tac Toe");
-        stage.setMaximized(true);
-        Scene scene = new Scene(root, 480, 320);
+        Scene scene = new Scene(root, 580, 420);
+        stage.setResizable(false);
 //        scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/fontstyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
@@ -27,7 +27,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
-        Player player1 = new Player();
-        Player player2 = new Player();
     }
 }

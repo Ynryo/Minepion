@@ -27,8 +27,6 @@ public class CloseGameConfirmController {
             Stage mainStage = (Stage) modalStage.getOwner();
             Scene scene = new Scene(root);
             mainStage.setScene(scene);
-            mainStage.setMaximized(false);
-            mainStage.setMaximized(true);
             mainStage.show();
         } catch (Exception e) {
             System.err.println("Error while closing game and returning to start page:");
