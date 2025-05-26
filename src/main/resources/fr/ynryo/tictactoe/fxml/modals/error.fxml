@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="475.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.ErrorsController">
+   <children>
+      <HBox>
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../../images/misc/error.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="error_name" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="h2" text="error_name">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="error_desc" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="h3" text="error_desc">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="close_btn" alignment="CENTER" mnemonicParsing="false" onAction="#close_modal" text="Fermer">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <styleClass>
+      <String fx:value="main_modal" />
+      <String fx:value="errors" />
+   </styleClass>
+</VBox>

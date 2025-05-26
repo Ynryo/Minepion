@@ -6,18 +6,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="149.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.CloseGameConfirmController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="475.0" styleClass="main_modal" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.CloseGameConfirmController">
     <children>
-        <Label prefHeight="63.0" prefWidth="227.0" text="Etes vous sûr de fermer la partie en cours ?">
+        <Label styleClass="h3" text="Etes vous sûr de fermer la partie en cours ?">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </Label>
         <ButtonBar buttonOrder="unspecified" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
             <buttons>
-                <Button fx:id="leaveBtn" mnemonicParsing="false" onAction="#closeModal" text="Annuler" />
-                <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#closeGame" text="Confirmer" />
+                <Button fx:id="leaveBtn" mnemonicParsing="false" onAction="#closeModal" styleClass="little" text="Annuler" />
+                <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#closeGame" styleClass="little" text="Confirmer" />
             </buttons>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
         </ButtonBar>
     </children>
     <opaqueInsets>

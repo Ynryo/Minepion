@@ -1,0 +1,30 @@
+.main_game {
+    -fx-background-image: url("../images/background/game/zoom4.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+Button.gameBoxes {
+    -fx-background-color: transparent;
+    -fx-background-image: none !important;
+    -fx-border-color: transparent;
+    -fx-min-width: 75px;
+    -fx-pref-width: 75px;
+    -fx-min-height: 75px;
+    -fx-pref-height: 75px;
+}
+
+.gameBoxesImg {
+    -fx-min-width: 65px;
+    -fx-pref-width: 65px;
+    -fx-min-height: 65px;
+    -fx-pref-height: 65px;
+}
+
+.grid {
+    -fx-margin: 18px;
+    -fx-min-width: 297px;
+    -fx-pref-width: 297px;
+    -fx-min-height: 297px;
+    -fx-pref-height: 297px;
+}

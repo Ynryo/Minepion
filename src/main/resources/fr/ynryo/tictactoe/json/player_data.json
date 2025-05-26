@@ -1,8 +1,34 @@
 {
+  "": {
+    "symbol": "bucket",
+    "score": 12.0
+  },
+  "UnJoueur": {
+    "symbol": "bogged_spawn_egg",
+    "score": 0.0
+  },
+  "test": {
+    "symbol": "lava_bucket",
+    "score": 0.0
+  },
+  "pisse": {
+    "symbol": "acacia_sign",
+    "score": 2
+  },
   "Ewen": {
-    "score": 9999
+    "score": 10015.0,
+    "symbol": "water_bucket"
   },
   "Ynryo": {
-    "score": 3
+    "score": 67.0,
+    "symbol": "lava_bucket"
+  },
+  "Théo": {
+    "symbol": "UwU",
+    "score": 4.0
+  },
+  "chien": {
+    "symbol": "acacia_chest_boat",
+    "score": 0.0
   }
 }

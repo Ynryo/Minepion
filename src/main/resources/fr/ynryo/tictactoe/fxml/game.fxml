@@ -1,93 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="672.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.GameController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1234.0" styleClass="main_game" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ynryo.tictactoe.controllers.GameController">
    <children>
-      <ButtonBar buttonOrder="unspecified">
-        <buttons>
-            <Button fx:id="close_game" minHeight="50.0" mnemonicParsing="false" onAction="#closeGameClicked" prefWidth="125.0" text="Quitter la partie" />
-          <Button fx:id="rules_btn" minHeight="50.0" mnemonicParsing="false" onAction="#openRules" text="Règles du jeu" />
-            <Button fx:id="reset_game_btn" minHeight="50.0" mnemonicParsing="false" onAction="#resetGame" text="Recommencer" />
-        </buttons>
-         <padding>
-            <Insets top="20.0" />
-         </padding>
-      </ButtonBar>
-      <GridPane gridLinesVisible="true" maxHeight="300.0" maxWidth="300.0" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: fff;">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="checkbox1" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" />
-            <Button fx:id="checkbox2" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" />
-            <Button fx:id="checkbox3" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" />
-            <Button fx:id="checkbox4" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.rowIndex="1" />
-            <Button fx:id="checkbox5" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="checkbox6" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="checkbox7" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.rowIndex="2" />
-            <Button fx:id="checkbox9" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="checkbox8" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: fff;" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <VBox.margin>
-            <Insets bottom="40.0" top="50.0" />
-         </VBox.margin>
-      </GridPane>
-      <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
-         <children>
-            <Label text="Tour : " />
-            <Label fx:id="player_turn" />
-         </children>
-      </HBox>
-      <HBox>
-         <children>
-            <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <ButtonBar buttonOrder="unspecified" BorderPane.alignment="CENTER">
+              <buttons>
+                  <Button fx:id="close_game" minHeight="50.0" mnemonicParsing="false" onAction="#closeGameClicked" prefWidth="125.0" text="Quitter la partie" />
+                <Button fx:id="rules_btn" minHeight="50.0" mnemonicParsing="false" onAction="#openRules" text="Règles du jeu" />
+                  <Button fx:id="reset_game_btn" minHeight="50.0" mnemonicParsing="false" onAction="#resetGame" text="Recommencer" />
+              </buttons>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </ButtonBar>
+         </top>
+         <center>
+            <GridPane accessibleHelp="grid" hgap="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="245.0" vgap="25.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Button fx:id="checkbox1" minWidth="72.0" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="72.0" styleClass="gameBoxes" stylesheets="@../css/style.css">
+                     <graphic>
+                        <ImageView fx:id="item_img1" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox2" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.columnIndex="1">
+                     <graphic>
+                        <ImageView fx:id="item_img2" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox3" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.columnIndex="2">
+                     <graphic>
+                        <ImageView fx:id="item_img3" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox4" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fx:id="item_img4" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox5" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fx:id="item_img5" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox6" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <graphic>
+                        <ImageView fx:id="item_img6" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox7" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fx:id="item_img7" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox9" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fx:id="item_img9" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                    <Button fx:id="checkbox8" mnemonicParsing="false" onAction="#checked" prefHeight="100.0" prefWidth="100.0" styleClass="gameBoxes" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fx:id="item_img8" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" styleClass="gameBoxesImg" />
+                     </graphic>
+                  </Button>
+                </children>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets bottom="40.0" right="15.0" top="250.0" />
+               </BorderPane.margin>
+            </GridPane>
+         </center>
+         <bottom>
+             <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0" BorderPane.alignment="CENTER">
+                 <children>
+                     <Label styleClass="h2" text="C'est au tour de " />
+                     <Label fx:id="player_turn" styleClass="h2" />
+                 </children>
+             </HBox>
+         </bottom>
+         <left>
+            <VBox alignment="CENTER" prefHeight="536.0" prefWidth="250.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="X : " />
-                  <Label fx:id="player1_name" />
+                  <ImageView fx:id="player1_symbol" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                       <Label fx:id="player1_name" styleClass="h2" />
+                     <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0" styleClass="h4">
+                         <children>
+                             <Label text="Score : " />
+                             <Label fx:id="player1_score" />
+                         </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     </HBox>
                </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
+            </VBox>
+         </left>
+         <right>
+            <VBox alignment="CENTER" prefHeight="536.0" prefWidth="250.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="O : " />
-                  <Label fx:id="player2_name" />
+                  <ImageView fx:id="player2_symbol" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="player2_name" styleClass="h2" />
+                  <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0" styleClass="h4">
+                     <children>
+                        <Label text="Score : " />
+                        <Label fx:id="player2_score" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
-            </HBox>
-         </children>
-      </HBox>
-      <HBox>
-         <children>
-            <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
-               <children>
-                  <Label text="Score : " />
-                  <Label fx:id="player1_score" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="18.0" prefWidth="20000.0">
-               <children>
-                  <Label text="Score : " />
-                  <Label fx:id="player2_score" />
-               </children>
-            </HBox>
-         </children>
-      </HBox>
+            </VBox>
+         </right>
+      </BorderPane>
    </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+      <URL value="@../css/game.css" />
+   </stylesheets>
 </VBox>

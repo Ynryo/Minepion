@@ -1,7 +1,140 @@
-.main {
-    -fx-background-color: #9cbee5;
+* {
+    -fx-font-family: 'Minecraft Regular';
+    -fx-text-fill: #fff;
 }
 
-.gameBoxes {
-    -fx-background-color: #fff;
+*:disabled {
+    -fx-opacity: 1;
 }
+
+.main {
+    -fx-background-image: url("../images/background/lobby/mc_world.png");
+    -fx-background-size: cover;
+    -fx-text-fill: #fff;
+}
+
+.main_modal {
+    -fx-background-image: url("../images/background/lobby/mc_modals.jpg");
+    -fx-background-size: cover;
+    /*-fx-text-fill: #fff;*/
+}
+
+.main_modal.rules {
+    -fx-background-image: url("../images/mc_textures/book.png");
+    -fx-background-color: transparent;
+    -fx-min-width: 438px;
+    -fx-pref-width: 438px;
+    -fx-min-height: 540px;
+    -fx-pref-height: 540px;
+}
+
+.main_modal.rules Label, TableColumn, TableView, TableCell {
+    -fx-text-fill: #000;
+}
+
+.main_modal Label {
+    -fx-text-fill: #fff;
+}
+
+.h1 {
+    -fx-font-family: 'Minecraft Regular';
+    -fx-font-size: 45;
+}
+
+.h2 {
+    -fx-font-family: 'Minecraft Regular';
+    -fx-font-size: 24;
+}
+
+.h3 {
+    -fx-font-family: 'Minecraft Regular';
+    -fx-font-size: 16;
+}
+
+.h4 {
+    -fx-font-family: 'Minecraft Regular';
+    -fx-font-size: 14;
+}
+
+RadioButton, CheckBox {
+    -fx-text-fill: #fff;
+    -fx-font-size: 12;
+}
+
+.main_config {
+    -fx-background-color: #000;
+    -fx-background-image: url("../images/background/dirt_bg.png");
+    -fx-background-size: cover;
+    /*-fx-pref-width: 100%;*/
+    /*-fx-pref-height: 100%;*/
+}
+
+.lobby_text {
+    -fx-text-fill: yellow;
+    -fx-effect: dropshadow(gaussian, black, 1, 1, 0, 0);
+    -fx-font-size: 20;
+    -fx-highlight-text-fill: #000;
+}
+
+.slotBtn {
+    -fx-background-image: url("../images/misc/slot.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-min-width: 100px;
+    -fx-pref-width: 100px;
+    -fx-min-height: 100px;
+    -fx-pref-height: 100px;
+}
+
+Button {
+    -fx-background-image: url("../images/mc_textures/button/button.png");
+    -fx-background-size: cover;
+    -fx-min-width: 400px;
+    -fx-pref-width: 400px;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-text-fill: #fff;
+    -fx-focus-color: transparent;
+    -fx-font-size: 18px;
+}
+
+Button:hover, Button:selected {
+    -fx-background-image: url("../images/mc_textures/button/button_highlighted.png");
+}
+
+Button:disabled {
+    -fx-background-image: url("../images/mc_textures/button/button_disabled.png");
+}
+
+Button.little {
+    -fx-background-image: url("../images/mc_textures/button/button-100.png");
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+}
+
+Button.little:hover {
+    -fx-background-image: url("../images/mc_textures/button/button_highlighted-100.png");
+}
+
+TextField {
+    -fx-background-image: url("../images/mc_textures/textfield/text_field-100.png");
+    -fx-background-size: cover;
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-text-fill: #fff;
+    -fx-focus-color: transparent;
+    -fx-font-size: 18px;
+}
+
+TextField:focused {
+    -fx-background-image: url("../images/mc_textures/textfield/text_field_highlighted-100.png");
+}
+
+/*Button {*/
+/*    !*-fx-background-image: url("/fr/ynryo/tictactoe/images/button.png");*!*/
+/*}*/
