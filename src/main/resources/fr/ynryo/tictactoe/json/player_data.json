@@ -15,12 +15,15 @@
     "symbol": "acacia_sign",
     "score": 2.0
   },
+  "Autre": {
+    "symbol": "axolotl_bucket"
+  },
   "Ewen": {
-    "score": 10015.0,
-    "symbol": "water_bucket"
+    "score": 10017.0,
+    "symbol": "wildflowers"
   },
   "Ynryo": {
-    "score": 68,
+    "score": 69.0,
     "symbol": "lava_bucket"
   },
   "Théo": {

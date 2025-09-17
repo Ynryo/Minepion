@@ -1,9 +1,6 @@
 package fr.ynryo.tictactoe;
 
-import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.io.File;
+import java.io.Serializable;
 
 /**
  * Classe représentant un joueur dans le jeu MinePion

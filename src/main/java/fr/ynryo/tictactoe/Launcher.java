@@ -1,8 +1,5 @@
 package fr.ynryo.tictactoe;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-
 /**
  * Classe abstraite servant de point d'entrée alternatif pour l'application
  * Permet de rediriger vers la classe principale Main pour le démarrage de l'application

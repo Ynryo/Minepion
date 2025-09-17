@@ -1,32 +1,26 @@
 package fr.ynryo.tictactoe.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import fr.ynryo.tictactoe.stageManager.StageManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Type;
 
-/**
- * Contrôleur pour la page de classement (ranking) du jeu
- */
 public class RankingController implements Initializable {
 
     @FXML
@@ -46,9 +40,6 @@ public class RankingController implements Initializable {
 
     private ObservableList<PlayerRanking> playerData = FXCollections.observableArrayList();
 
-    /**
-     * Classe pour stocker les données des joueurs
-     */
     public static class PlayerRanking {
         private String pseudo;
         private int nbParties;
@@ -60,7 +51,6 @@ public class RankingController implements Initializable {
             this.score = score;
         }
 
-        // Getters et setters pour le binding avec TableView
         public String getPseudo() { return pseudo; }
         public void setPseudo(String pseudo) { this.pseudo = pseudo; }
 
@@ -83,10 +73,8 @@ public class RankingController implements Initializable {
         // Chargement des données
         loadPlayerData();
 
-        // Affichage dans le tableau
         tableView.setItems(playerData);
 
-        // Tri par score décroissant
         tableView.getSortOrder().add(scoreColumn);
         scoreColumn.setSortType(TableColumn.SortType.DESCENDING);
         tableView.sort();
@@ -94,12 +82,8 @@ public class RankingController implements Initializable {
         System.out.println("Nombre de joueurs chargés: " + playerData.size());
     }
 
-    /**
-     * Charge les données des joueurs depuis le fichier JSON
-     */
     private void loadPlayerData() {
         try {
-            // Charger le fichier JSON depuis les ressources
             InputStream is = getClass().getResourceAsStream("/fr/ynryo/tictactoe/json/player_data.json");
             if (is == null) {
                 System.err.println("Fichier JSON introuvable!");
@@ -156,29 +140,11 @@ public class RankingController implements Initializable {
 
     @FXML
     void toBack(ActionEvent event) {
-        try {
-            // Récupérer la fenêtre actuelle
-            Stage stage = (Stage) back_btn.getScene().getWindow();
-
-            // Charger le fichier FXML de la page d'accueil
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/ynryo/tictactoe/fxml/starting_page.fxml"));
-
-            // Obtenir les dimensions de l'écran pour un affichage optimal
-            Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
-
-            // Créer une nouvelle scène avec la page d'accueil
-            Scene scene = new Scene(fxmlLoader.load(), screenSize.getWidth(), screenSize.getHeight());
-
-            // Appliquer les styles CSS à la scène
-            scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/style.css").toExternalForm());
-
-            // Configurer et afficher la fenêtre avec la nouvelle scène
-            stage.setScene(scene);
-            stage.setTitle("MinePion - Configuration de la partie");
-            stage.setMaximized(true);
-        } catch (Exception e) {
-            System.err.println("Erreur lors de l'ouverture de la fenêtre de configuration de la partie:");
-            e.printStackTrace();
-        }
+        StageManager stageManager = new StageManager(
+                "MinePion - Configuration de la partie",
+                "/fr/ynryo/tictactoe/fxml/starting_page.fxml",
+                (Stage) back_btn.getScene().getWindow()
+        );
+        stageManager.switchStage();
     }
 }

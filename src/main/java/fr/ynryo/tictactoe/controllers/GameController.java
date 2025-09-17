@@ -1,6 +1,8 @@
 package fr.ynryo.tictactoe.controllers;
 
-import fr.ynryo.tictactoe.*;
+import fr.ynryo.tictactoe.Player;
+import fr.ynryo.tictactoe.stageManager.StageManager;
+import fr.ynryo.tictactoe.stageManager.StageTypes;
 import javafx.animation.Interpolator;
 import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
@@ -8,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -125,9 +126,6 @@ public class GameController {
     private int nbActions;                 // Nombre de coups joués dans la partie en cours
     private final List winningCheckboxes = new ArrayList<CheckBox>(); // Liste des cases de la combinaison gagnante
 
-    /**
-     * Initialise la grille de jeu et réinitialise l'état
-     */
     @FXML
     void initialize() {
         // Organisation des contrôles en tableaux 2D pour faciliter leur manipulation
@@ -164,79 +162,35 @@ public class GameController {
         winningCheckboxes.clear();
     }
 
-    /**
-     * Affiche une fenêtre de confirmation pour fermer le jeu
-     */
     @FXML
     void closeGameClicked(ActionEvent event) {
-        try {
-            // Chargement de la fenêtre modale de confirmation
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/ynryo/tictactoe/fxml/modals/close_game_confirm.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-
-            // Application du style CSS
-            scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/style.css").toExternalForm());
-
-            // Configuration de la fenêtre
-            stage.setTitle("Fermer la partie ?");
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("/fr/ynryo/tictactoe/images/favicon/favicon.png")));
-            stage.setResizable(false);
-            stage.initModality(Modality.APPLICATION_MODAL);  // Bloque l'interaction avec la fenêtre parent
-            stage.setScene(scene);
-
-            // Définition de la fenêtre parente
-            Node source = (Node) event.getSource();
-            stage.initOwner(source.getScene().getWindow());
-            stage.showAndWait();
-        } catch (Exception e) {
-            System.err.println("Erreur lors de l'ouverture de la fenêtre de confirmation");
-            e.printStackTrace();
-        }
+        StageManager stageManager = new StageManager(
+                "MinePion - Fermer la partie ?",
+                "/fr/ynryo/tictactoe/fxml/modals/close_game_confirm.fxml",
+                new Stage(),
+                StageTypes.MODAL,
+                event
+        );
+        stageManager.switchStage();
     }
 
-    /**
-     * Affiche les règles du jeu dans une fenêtre modale
-     */
     @FXML
     void openRules(ActionEvent event) {
-        try {
-            // Chargement de la fenêtre modale des règles
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/ynryo/tictactoe/fxml/modals/rules.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(fxmlLoader.load());
-            scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/style.css").toExternalForm());
-
-            // Configuration de la fenêtre
-            stage.setTitle("Règles du jeu");
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("/fr/ynryo/tictactoe/images/favicon/favicon.png")));
-            stage.setResizable(false);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-
-            // Définition de la fenêtre parente
-            Node source = (Node) event.getSource();
-            stage.initOwner(source.getScene().getWindow());
-            stage.showAndWait();
-        } catch (Exception e) {
-            System.err.println("Erreur durant l'ouverture de la fenètre des règles du jeu");
-            e.printStackTrace();
-        }
+        StageManager stageManager = new StageManager(
+                "Règles du jeu",
+                "/fr/ynryo/tictactoe/fxml/modals/rules.fxml",
+                new Stage(),
+                StageTypes.MODAL,
+                event
+        );
     }
 
-    /**
-     * Réinitialise la partie en cours sans changer les scores
-     */
     @FXML
     void resetGame(ActionEvent event) {
         initialize();  // Réinitialise le plateau
         setPlayers(player1, player2, starter);  // Conserve les mêmes joueurs
     }
 
-    /**
-     * Configure les joueurs et leurs informations dans l'interface
-     */
     public void setPlayers(Player player1, Player player2) {
         // Configuration du joueur 1
         this.player1 = player1;
@@ -251,9 +205,6 @@ public class GameController {
         player2_symbol.setImage(new Image(getClass().getResourceAsStream("/fr/ynryo/tictactoe/images/item/" + player2.getSymbolInFile() + ".png"), 150, 150, false, false));
     }
 
-    /**
-     * Configure les joueurs et définit qui commence la partie
-     */
     public void setPlayers(Player player1, Player player2, Player starter) {
         this.starter = starter;
         // Mémorise le joueur qui a commencé la première partie pour alterner par la suite
