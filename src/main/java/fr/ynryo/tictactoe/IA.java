@@ -8,11 +8,12 @@ public class IA extends Player{
     private int difficulty;
     
     public IA() {
-        this(1);
+        super("Ordinateur", "redstone");
+//        this(1);
     }
     
     public IA(int difficulty) {
-        super("Ordinateur", "💻");
+        super("Ordinateur", "redstone");
         this.difficulty = difficulty;
     }
     

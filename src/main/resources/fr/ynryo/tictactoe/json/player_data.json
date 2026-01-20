@@ -1,7 +1,7 @@
 {
   "": {
     "symbol": "bucket",
-    "score": 12.0
+    "score": 14.0
   },
   "UnJoueur": {
     "symbol": "bogged_spawn_egg",
@@ -11,6 +11,10 @@
     "symbol": "lava_bucket",
     "score": 0.0
   },
+  "moi": {
+    "symbol": "allay_spawn_egg",
+    "score": 1.0
+  },
   "pisse": {
     "symbol": "acacia_sign",
     "score": 2.0
@@ -18,12 +22,15 @@
   "Autre": {
     "symbol": "axolotl_bucket"
   },
+  "fsgsfg": {
+    "symbol": "archer_pottery_sherd"
+  },
   "Ewen": {
     "score": 10017.0,
     "symbol": "wildflowers"
   },
   "Ynryo": {
-    "score": 69.0,
+    "score": 70,
     "symbol": "lava_bucket"
   },
   "Théo": {

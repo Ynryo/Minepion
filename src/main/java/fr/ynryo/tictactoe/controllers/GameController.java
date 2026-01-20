@@ -3,13 +3,9 @@ package fr.ynryo.tictactoe.controllers;
 import fr.ynryo.tictactoe.Player;
 import fr.ynryo.tictactoe.stageManager.StageManager;
 import fr.ynryo.tictactoe.stageManager.StageTypes;
-import javafx.animation.Interpolator;
-import javafx.animation.PauseTransition;
-import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -18,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -379,24 +374,25 @@ public class GameController {
      * Anime les cases de la combinaison gagnante (fonction non utilisée)
      * NOTE: Cette fonction contient des bugs et n'est pas appelée actuellement
      */
-    private void playAnimation() {
-        if (!winningCheckboxes.isEmpty()) {
-            for (Object checkBox : winningCheckboxes) {
-                System.out.println("animation playing");
-                // ATTENTION: Cast incorrect - checkBox contient des String, pas des Node
-                ScaleTransition transition = new ScaleTransition(Duration.seconds(1), (Node) checkBox);
-                transition.setToX(0.2);
-                transition.setToY(0.2);
-                transition.setInterpolator(Interpolator.EASE_BOTH);
-                transition.play();
-            }
-        }
-        // Pause de 2 secondes après l'animation
-        PauseTransition pt = new PauseTransition(Duration.seconds(2));
-        pt.play();
 
-        winningCheckboxes.clear();
-    }
+//    private void playAnimation() {
+//        if (!winningCheckboxes.isEmpty()) {
+//            for (Object checkBox : winningCheckboxes) {
+//                System.out.println("animation playing");
+//                // ATTENTION: Cast incorrect - checkBox contient des String, pas des Node
+//                ScaleTransition transition = new ScaleTransition(Duration.seconds(1), (Node) checkBox);
+//                transition.setToX(0.2);
+//                transition.setToY(0.2);
+//                transition.setInterpolator(Interpolator.EASE_BOTH);
+//                transition.play();
+//            }
+//        }
+//        // Pause de 2 secondes après l'animation
+//        PauseTransition pt = new PauseTransition(Duration.seconds(2));
+//        pt.play();
+//
+//        winningCheckboxes.clear();
+//    }
 
     /**
      * Retourne le nombre d'actions jouées

@@ -84,7 +84,7 @@ public class ConfigNewGameController {
 
     @FXML
     void initialize() {
-        one_player_mode.setDisable(true);
+//        one_player_mode.setDisable(true);
         nbPlayerMode = 2;
 
         loadImageItems();
@@ -114,11 +114,22 @@ public class ConfigNewGameController {
     @FXML
     void onePlayerSelected(ActionEvent event) {
         setNbPlayerMode(1);
+        input_player2_name.setText("Ordinateur");
+        input_player2_symbol.setText("redstone");
+        item_img2.setDisable(true);
+        /*item_img2.setImage();*/
+        input_player2_name.setDisable(true);
+        input_player2_symbol.setDisable(true);
     }
 
     @FXML
     void twoPlayersSelected(ActionEvent event) {
         setNbPlayerMode(2);
+        input_player2_name.setText("");
+        input_player2_symbol.setText("redstone");
+        item_img2.setDisable(false);
+        input_player2_name.setDisable(false);
+        input_player2_symbol.setDisable(false);
     }
 
     @FXML

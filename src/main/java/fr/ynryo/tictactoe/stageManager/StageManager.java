@@ -58,8 +58,8 @@ public class StageManager {
             scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/style.css").toExternalForm());
             scene.getStylesheets().add(getClass().getResource("/fr/ynryo/tictactoe/css/game.css").toExternalForm());
 
-            originStage.getIcons().add(new Image(getClass().getResourceAsStream("/fr/ynryo/tictactoe/images/favicon/favicon.png")));
             originStage.setScene(scene);
+            originStage.getIcons().add(new Image(getClass().getResourceAsStream("/fr/ynryo/tictactoe/images/favicon/favicon.png")));
             originStage.setTitle(title);
 
         } catch (Exception e) {
