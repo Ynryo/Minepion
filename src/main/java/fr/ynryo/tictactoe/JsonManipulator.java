@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class JsonManipulator {
     private final String path;
+
     public JsonManipulator(String path) {
         this.path = path;
     }
@@ -44,20 +45,20 @@ public class JsonManipulator {
 
     private Object getDefaultValue(String key) {
         return switch (key) {
-            case "score", "nbGamePlayed" -> 0;    // Valeurs numériques initialisées à 0
-            case "symbol" -> "";                  // Chaîne vide pour les symboles
-            default -> null;                      // Valeur null par défaut pour les autres types
+            case "score", "nbGamePlayed" -> 0; // Valeurs numériques initialisées à 0
+            case "symbol" -> ""; // Chaîne vide pour les symboles
+            default -> null; // Valeur null par défaut pour les autres types
         };
     }
 
     private Object parseValue(String key, Object value) {
         return switch (key) {
-            case "score", "nbGamePlayed" -> value instanceof Number ? ((Number) value).intValue() : 0; // Conversion en entier
-            case "symbol" -> value.toString();    // Conversion en chaîne de caractères
-            default -> value;                     // Aucune conversion pour les autres types
+            case "score", "nbGamePlayed" -> value instanceof Number ? ((Number) value).intValue() : 0; // Conversion en
+                                                                                                       // entier
+            case "symbol" -> value.toString(); // Conversion en chaîne de caractères
+            default -> value; // Aucune conversion pour les autres types
         };
     }
-
 
     public void write(String name, String key, Object input) {
         // Création d'un Gson avec formatage pour une meilleure lisibilité du fichier
@@ -66,7 +67,8 @@ public class JsonManipulator {
 
         // Chargement des données existantes pour les préserver
         try (Reader reader = new FileReader(path)) {
-            Type type = new TypeToken<Map<String, Map<String, Object>>>(){}.getType();
+            Type type = new TypeToken<Map<String, Map<String, Object>>>() {
+            }.getType();
             Map<String, Map<String, Object>> existingData = gson.fromJson(reader, type);
             if (existingData != null) {
                 data.putAll(existingData);
@@ -90,6 +92,6 @@ public class JsonManipulator {
         }
     }
 
-    //TODO: modif le type object en string et le parser en int si nécessaire
-    //TODO:
+    // TODO: modif le type object en string et le parser en int si nécessaire
+    // TODO:
 }
